@@ -152,6 +152,7 @@ public class GymLogApp {
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: shows user's progress on an exercise
     private void userProgress() {
         referenceList();
@@ -171,6 +172,7 @@ public class GymLogApp {
         }
     }
 
+    // MODIFIES: this
     // EFFECTS: creates a specialized workout for the user
     private void userMuscleGroup() {
         if (gymLog.totalGymExercisesRecorded() > 0) {
