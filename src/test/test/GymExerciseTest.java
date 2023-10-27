@@ -31,7 +31,7 @@ class GymExerciseTest {
         assertFalse(testGymExercise.canAddWeight());
         assertEquals(0, testGymExercise.getWeight());
         assertEquals(0, testGymExercise.getSets());
-        assertEquals(0, testGymExercise.getRepetition());
+        assertEquals(0, testGymExercise.getRepetitions());
     }
 
     // tests if some gym exercises can have weights added
@@ -55,9 +55,9 @@ class GymExerciseTest {
     // tests setting repetition for a gym exercise
     @Test
     void testSetRepetition() {
-        testGymExercise1.setRepetition(8);
-        testGymExercise2.setRepetition(0);
-        assertEquals(8, testGymExercise1.getRepetition());
-        assertEquals(0, testGymExercise2.getRepetition());
+        testGymExercise1.setRepetitions(8);
+        testGymExercise2.setRepetitions(0);
+        assertEquals(8, testGymExercise1.getRepetitions());
+        assertEquals(0, testGymExercise2.getRepetitions());
     }
 }

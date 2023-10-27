@@ -1,0 +1,29 @@
+{
+    "name": "Your gym log",
+    "gym exercises": [
+        {
+            "sets": 3,
+            "name": "barbell-rows",
+            "weight": 115,
+            "targetMuscle": "back",
+            "hasAddedWeight": true,
+            "repetitions": 10
+        },
+        {
+            "sets": 3,
+            "name": "pull-ups",
+            "weight": 0,
+            "targetMuscle": "back",
+            "hasAddedWeight": false,
+            "repetitions": 10
+        },
+        {
+            "sets": 3,
+            "name": "crunches",
+            "weight": 0,
+            "targetMuscle": "core",
+            "hasAddedWeight": false,
+            "repetitions": 20
+        }
+    ]
+}

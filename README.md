@@ -34,3 +34,5 @@ that abstinence to change for the betterment of quality of life.
 - As a user, I want to be able to calculate my weight progress on exercises that have been recorded multiple times.
 - As a user, I want to be able to make and **view** a _list_ of exercises tailoring to certain muscle groups.
 - As a user, I want to be able to know which exercise I've recorded uses the heaviest weight.
+- As a user, I want to be able to save all the gym exercises I've recorded
+- As a user, I want to be able to reload all the gym exercises I've previously added before

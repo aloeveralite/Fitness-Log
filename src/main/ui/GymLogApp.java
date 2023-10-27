@@ -2,25 +2,31 @@ package ui;
 
 import model.GymExercise;
 import model.GymLog;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 // Gym Log application
 public class GymLogApp {
+    private static final String JSON_STORAGE = "./data/gymlog.json";
     private GymLog gymLog;
     private GymExercise gymExercise;
     private Scanner input;
     private String userName;
     private String userTargetMuscle;
     private Boolean userHasWeights;
-    private int userWeight;
-    private int userSets;
-    private int userRepetition;
+    private JsonReader jsonReader;
+    private JsonWriter jsonWriter;
 
     // EFFECTS: starts the gym log
-    public GymLogApp() {
+    public GymLogApp() throws FileNotFoundException {
+        jsonReader = new JsonReader(JSON_STORAGE);
+        jsonWriter = new JsonWriter(JSON_STORAGE);
         startGymLog();
     }
 
@@ -48,22 +54,24 @@ public class GymLogApp {
 
     // EFFECTS: initializes gym log
     private void initializer() {
-        gymLog = new GymLog();
+        gymLog = new GymLog("Your personal gym log");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
 
     // EFFECTS: displays the main menu of options for user to enter
     private void mainMenu() {
-        System.out.println("\nWelcome to your personal gym log.");
+        System.out.println("\nWelcome to " + gymLog.getName() + ".");
         System.out.println("\nTotal exercises added: " + gymLog.totalGymExercisesRecorded());
 
         System.out.println("\tr -> record exercise");
         System.out.println("\td -> delete exercise");
-        System.out.println("\ts -> select exercise");
+        System.out.println("\te -> select exercise");
         System.out.println("\tp -> weight progress on exercise");
         System.out.println("\tm -> make a specialized muscle workout");
         System.out.println("\th -> view exercise with heaviest weight");
+        System.out.println("\ts -> save gym log to file");
+        System.out.println("\tl -> load gym log from file");
         System.out.println("\tq -> quit");
     }
 
@@ -75,7 +83,7 @@ public class GymLogApp {
             userRecordExercise();
         } else if (userCommand.equals("d")) {
             userDeleteExercise();
-        } else if (userCommand.equals("s")) {
+        } else if (userCommand.equals("e")) {
             userSelectExercises();
         } else if (userCommand.equals("p")) {
             userProgress();
@@ -83,6 +91,10 @@ public class GymLogApp {
             userMuscleGroup();
         } else if (userCommand.equals("h")) {
             userStrongestExercise();
+        } else if (userCommand.equals("s")) {
+            userSaveGymLog();
+        } else if (userCommand.equals("l")) {
+            userLoadGymLog();
         } else {
             System.out.println("Invalid selection...");
         }
@@ -119,7 +131,7 @@ public class GymLogApp {
         gymExercise.setSets(input.nextInt());
 
         System.out.println("\tHow many repetitions? ");
-        gymExercise.setRepetition(input.nextInt());
+        gymExercise.setRepetitions(input.nextInt());
 
         gymLog.recordExercise(gymExercise);
     }
@@ -207,6 +219,29 @@ public class GymLogApp {
         System.out.println("Your strongest exercise is... " + gymLog.highestWeightedExercise().getName() + "!");
     }
 
+    // EFFECTS: saves the gym log to file
+    private void userSaveGymLog() {
+        try {
+            jsonWriter.openWriter();
+            jsonWriter.writeGymLog(gymLog);
+            jsonWriter.closeWriter();
+            System.out.println("Saving " + gymLog.getName() + " to " + JSON_STORAGE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Not able to write to file: " + JSON_STORAGE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads the gym log from file
+    private void userLoadGymLog() {
+        try {
+            gymLog = jsonReader.readGymLog();
+            System.out.println("Loading " + gymLog.getName() + " from " + JSON_STORAGE);
+        } catch (IOException e) {
+            System.out.println("Not able to read from file: " + JSON_STORAGE);
+        }
+    }
+
     // EFFECTS: displays a list of the names of each exercise for reference
     private void referenceList() {
         System.out.println("\nFor reference, all exercises recorded so far: ");
@@ -225,3 +260,5 @@ public class GymLogApp {
 
 // Aid from: AccountNotRobust
 // Class: TellerApp
+// Aid from: JsonSerializationDemo
+// Class: WorkRoomApp

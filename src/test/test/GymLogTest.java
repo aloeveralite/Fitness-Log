@@ -19,7 +19,7 @@ class GymLogTest {
 
     @BeforeEach
     void runBefore() {
-        testGymRepository = new GymLog();
+        testGymRepository = new GymLog("Your gym log");
         benchPress = new GymExercise("bench-press", "chest", true);
         inclineBench = new GymExercise("incline-bench", "chest", true);
         squats = new GymExercise("squats", "legs", true);
@@ -36,6 +36,7 @@ class GymLogTest {
     // tests the constructor
     @Test
     void testConstructor() {
+        assertEquals("Your gym log", testGymRepository.getName());
         assertEquals(0, testGymRepository.totalGymExercisesRecorded());
     }
 
@@ -224,6 +225,6 @@ class GymLogTest {
     void helper(GymExercise gymExercise, int weight, int sets, int repetition) {
         gymExercise.addWeight(weight);
         gymExercise.setSets(sets);
-        gymExercise.setRepetition(repetition);
+        gymExercise.setRepetitions(repetition);
     }
 }

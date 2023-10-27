@@ -1,0 +1,53 @@
+{
+    "name": "Your personal gym log",
+    "gym exercises": [
+        {
+            "sets": 3,
+            "name": "bench-press",
+            "weight": 165,
+            "targetMuscle": "chest",
+            "hasAddedWeight": true,
+            "repetitions": 8
+        },
+        {
+            "sets": 3,
+            "name": "push-ups",
+            "weight": 0,
+            "targetMuscle": "chest",
+            "hasAddedWeight": false,
+            "repetitions": 20
+        },
+        {
+            "sets": 3,
+            "name": "hammer-curls",
+            "weight": 50,
+            "targetMuscle": "arms",
+            "hasAddedWeight": true,
+            "repetitions": 10
+        },
+        {
+            "sets": 3,
+            "name": "bench-press",
+            "weight": 175,
+            "targetMuscle": "chest",
+            "hasAddedWeight": true,
+            "repetitions": 8
+        },
+        {
+            "sets": 3,
+            "name": "pull-ups",
+            "weight": 0,
+            "targetMuscle": "back",
+            "hasAddedWeight": false,
+            "repetitions": 8
+        },
+        {
+            "sets": 3,
+            "name": "squats",
+            "weight": 205,
+            "targetMuscle": "legs",
+            "hasAddedWeight": true,
+            "repetitions": 8
+        }
+    ]
+}

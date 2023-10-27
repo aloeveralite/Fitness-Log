@@ -1,15 +1,21 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-// a gym exercises log that contains lists of gym exercises that can be modified, viewed, and tracked
-public class GymLog {
+// Represents a gym exercises log that contains lists of gym exercises that can be modified, viewed, and tracked
+public class GymLog implements Writable {
     private List<GymExercise> gymExercises;
+    private String name;
 
     // EFFECTS: constructs a list of gym exercises
-    public GymLog() {
+    public GymLog(String name) {
         this.gymExercises = new ArrayList<GymExercise>();
+        this.name = name;
     }
 
     // EFFECTS: adds a gym exercise to the list of gym exercises
@@ -27,7 +33,7 @@ public class GymLog {
         GymExercise gymExerciseInfo = gymExercises.get(index);
         String information = gymExerciseInfo.getName() + ": " + gymExerciseInfo.getTargetMuscles()
                 + " " + gymExerciseInfo.getWeight() + "lbs " + gymExerciseInfo.getSets() + "x"
-                + gymExerciseInfo.getRepetition();
+                + gymExerciseInfo.getRepetitions();
 
         return information;
     }
@@ -95,4 +101,32 @@ public class GymLog {
     public List<GymExercise> getGymExercises() {
         return this.gymExercises;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    // EFFECTS: converts a gym log object to a JSON Object with all the attributes of a gym log
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("gym exercises", gymExercisesToJson());
+        return json;
+    }
+
+    // EFFECTS: returns every gym exercise in the gym log as a JSON array
+    private JSONArray gymExercisesToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (GymExercise g : this.gymExercises) {
+            jsonArray.put(g.toJson());
+        }
+
+        return jsonArray;
+    }
 }
+
+// Aid from: JsonSerializationDemo
+// Class: WorkRoom
+
