@@ -47,7 +47,7 @@ public class GymLogGUI extends JFrame {
         JPanel exercisesTab = new ExercisesTab(this);
 
         tabbedPane.add(homeTab, 0);
-        tabbedPane.setTitleAt(0, "Home");
+        tabbedPane.setTitleAt(0, "Main");
         tabbedPane.add(exercisesTab, 1);
         tabbedPane.setTitleAt(1, "Exercises");
     }

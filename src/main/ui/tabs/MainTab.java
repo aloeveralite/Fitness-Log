@@ -7,12 +7,9 @@ import ui.GymLogGUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 // Represents the main tab allowing users through GUI to add exercises
 public class MainTab extends Tab {
-    private static final String JSON_STORAGE = "./data/gymlog.json";
     private String name;
     private String target;
     private int weight;
@@ -25,8 +22,6 @@ public class MainTab extends Tab {
     private JTextField setsField;
     private JTextField repetitionsField;
     private GymExercise gymExercise;
-    private JsonReader jsonReader;
-    private JsonWriter jsonWriter;
 
     // EFFECTS: constructs a home tab that sets up a grid layout of the panel and all the buttons
     public MainTab(GymLogGUI gymLogController) {
@@ -211,7 +206,7 @@ public class MainTab extends Tab {
 
         JLabel label = new JLabel(icon);
 
-        JDialog dialog = new JDialog(this.getGymLogController(), "Exercise successfully added", true);
+        JDialog dialog = new JDialog(this.getGymLogController(), "Success", true);
         dialog.setLayout(new BorderLayout());
         dialog.add(new JScrollPane(label));
         dialog.setSize(400, 300);
@@ -219,14 +214,16 @@ public class MainTab extends Tab {
         dialog.setVisible(true);
     }
 
-    // EFFECTS: saves current state of what exercises were recorded
+    // EFFECTS: saves current state of what exercises were recorded and prompts a success icon
     private void saveState() {
         getGymLogController().save();
+        successImagePopUp();
     }
 
-    // EFFECTS: loads previously saved state of what exercises were recorded
+    // EFFECTS: loads previously saved state of what exercises were recorded and prompts a success icon
     private void loadState() {
         getGymLogController().load();
+        successImagePopUp();
     }
 }
 

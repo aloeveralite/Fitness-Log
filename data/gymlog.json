@@ -1,29 +1,4 @@
 {
     "name": "Your Gym Log",
-    "gym exercises": [
-        {
-            "sets": 3,
-            "name": "squats",
-            "weight": 205,
-            "targetMuscle": "legs",
-            "hasAddedWeight": true,
-            "repetitions": 10
-        },
-        {
-            "sets": 3,
-            "name": "bicep-curls",
-            "weight": 25,
-            "targetMuscle": "arms",
-            "hasAddedWeight": true,
-            "repetitions": 10
-        },
-        {
-            "sets": 3,
-            "name": "push-ups",
-            "weight": 0,
-            "targetMuscle": "chest",
-            "hasAddedWeight": false,
-            "repetitions": 25
-        }
-    ]
+    "gym exercises": []
 }
