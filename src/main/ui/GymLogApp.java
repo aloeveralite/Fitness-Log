@@ -102,7 +102,7 @@ public class GymLogApp {
 
     // MODIFIES: this
     // EFFECTS: prompts user to specify the exercise they are recording
-    private void userRecordExercise() {
+    public void userRecordExercise() {
         referenceList();
 
         System.out.println("\nnote: use a dash '-' instead of a space in-between words for consistency");
@@ -138,7 +138,7 @@ public class GymLogApp {
 
     // MODIFIES: this
     // EFFECTS: removes the exercise from the list of exercises
-    private void userDeleteExercise() {
+    public void userDeleteExercise() {
         referenceList();
 
         if (gymLog.totalGymExercisesRecorded() > 0) {
@@ -249,7 +249,7 @@ public class GymLogApp {
     }
 
     // EFFECTS: gets the name of each exercise in list
-    private List<String> getNamesOfExercises() {
+    public List<String> getNamesOfExercises() {
         List<String> exerciseNames = new ArrayList<>();
         for (GymExercise gm : gymLog.getGymExercises()) {
             exerciseNames.add(gm.getName());
