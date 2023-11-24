@@ -21,7 +21,6 @@ public class MainTab extends Tab {
     private JTextField weightField;
     private JTextField setsField;
     private JTextField repetitionsField;
-    private GymExercise gymExercise;
 
     // EFFECTS: constructs a home tab that sets up a grid layout of the panel and all the buttons
     public MainTab(GymLogGUI gymLogController) {
@@ -183,10 +182,10 @@ public class MainTab extends Tab {
         setsField.setText("");
         repetitionsField.setText("");
 
-        if ((!(name.equals(""))) && (!(target.equals("")))) {
+        if ((!(name.isEmpty())) && (!(target.isEmpty()))) {
             status.setText("Exercise successfully added");
             successImagePopUp();
-            gymExercise = new GymExercise(name, target, (weight > 0));
+            GymExercise gymExercise = new GymExercise(name, target, (weight > 0));
             gymExercise.addWeight(weight);
             gymExercise.setSets(sets);
             gymExercise.setRepetitions(repetitions);

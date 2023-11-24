@@ -16,8 +16,8 @@ public class GymLogGUI extends JFrame {
     private static final String JSON_STORAGE = "./data/gymlog.json";
     private GymLog gymLog;
     private JTabbedPane tabbedPane;
-    private JsonReader jsonReader;
-    private JsonWriter jsonWriter;
+    private final JsonReader jsonReader;
+    private final JsonWriter jsonWriter;
 
     // EFFECTS: constructs a gym log graphical user interface that sets how to close the window, the size, visibility,
     //          instantiates a gym log, and tabbed panes

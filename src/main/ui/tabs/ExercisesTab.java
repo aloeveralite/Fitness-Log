@@ -13,8 +13,7 @@ public class ExercisesTab extends Tab {
     private JButton showExercises;
     private JButton selectExercise;
     private JLabel selectedExercise;
-    private JScrollPane exercisePane;
-    private DefaultListModel<String> listModel;
+    private final DefaultListModel<String> listModel;
     private JList<String> gymExercises;
 
     // EFFECTS: constructs an exercise tab that sets up a grid layout of the panel and instantiates lists
@@ -31,7 +30,7 @@ public class ExercisesTab extends Tab {
         showExercises = new JButton("All exercises");
         selectExercise = new JButton("Select an exercise");
         selectedExercise = new JLabel("");
-        exercisePane = new JScrollPane(gymExercises);
+        JScrollPane exercisePane = new JScrollPane(gymExercises);
 
         viewALlExercises();
         selectExercise();
