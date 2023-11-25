@@ -14,7 +14,7 @@ public class ExercisesTab extends Tab {
     private JButton selectExercise;
     private JLabel selectedExercise;
     private final DefaultListModel<String> listModel;
-    private JList<String> gymExercises;
+    private final JList<String> gymExercises;
 
     // EFFECTS: constructs an exercise tab that sets up a grid layout of the panel and instantiates lists
     public ExercisesTab(GymLogGUI gymLogController) {
@@ -46,6 +46,7 @@ public class ExercisesTab extends Tab {
 
     // MODIFIES: this
     // EFFECTS:  adds and displays all exercises added using the GUI with action listener
+    //           does not take duplicates
     private void viewALlExercises() {
         showExercises.addActionListener(new ActionListener() {
             @Override
@@ -55,7 +56,9 @@ public class ExercisesTab extends Tab {
                 if (buttonPressed.equals("All exercises")) {
                     if (!(getGymLogController().getGymLog().getGymExercises().isEmpty())) {
                         for (GymExercise gymExercise : getGymLogController().getGymLog().getGymExercises()) {
-                            listModel.addElement(gymExercise.getName());
+                            if (!(listModel.contains(gymExercise.getName()))) {
+                                listModel.addElement(gymExercise.getName());
+                            }
                         }
                     }
                 }
