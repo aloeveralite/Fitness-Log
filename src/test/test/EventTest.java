@@ -42,6 +42,7 @@ public class EventTest {
     @Test
     void testEqualsMismatch() {
         assertFalse(testEvent.equals(testEvent2));
+        assertFalse(testEvent.equals(new Event("Added exercise")));
     }
 
     @Test
