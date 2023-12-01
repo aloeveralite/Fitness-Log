@@ -38,8 +38,8 @@ public class Event {
 
         Event otherEvent = (Event) other;
 
-        return (this.eventDate.equals(otherEvent.eventDate) &&
-                this.eventDescription.equals(otherEvent.eventDescription));
+        return (this.eventDate.equals(otherEvent.eventDate)
+                && this.eventDescription.equals(otherEvent.eventDescription));
     }
 
     @Override
