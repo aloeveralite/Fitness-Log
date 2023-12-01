@@ -1,5 +1,6 @@
 package test;
 
+import model.EventLog;
 import model.GymExercise;
 import model.GymLog;
 

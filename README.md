@@ -57,3 +57,35 @@ with a name and target entered prior), or by clicking the button 'Save current e
 'Load previous exercise(s)'. These buttons are all in the 'Main' tab.
 - You can save the state of my application by clicking the button 'Save current exercise(s)' in the 'Main' tab.
 - You can reload the state of my application by clicking the button 'Load previous exercise(s)' in the 'Main' tab.
+
+# Phase 4: Task 2
+
+Added new exercise: push-ups <br>
+Viewed exercise: push-ups <br>
+Added new exercise: squats <br>
+Added new exercise: pull-ups <br>
+Viewed exercise: pull-ups <br>
+Added new exercise: sit-ups <br>
+Viewed exercise: push-ups <br>
+Added new exercise: bicep-curls <br>
+Viewed exercise: bicep-curls <br>
+Added new exercise: shoulder-press <br>
+Added new exercise: bench-press <br>
+Viewed exercise: bench-press <br>
+
+# Phase 4: Task 3
+<p> Based on what I have seen in my UML class diagram I strongly believe I could add a bunch more complex class 
+hierarchies and more depth and width, especially since my project is on a diverse topic like exercise.</p>
+
+<p> I think some refactoring would be to apply the abstract class and interface and more diversity in terms of class
+hierarchy. For example, I came to this conclusion seeing as to how I am adding a bunch of exercises to a gym log, but
+those exercises can vary considering just how diverse and broad exercising can be. I could have added swimming, sports,
+running, etc. so an abstract class and potentially even an interface would have been nice to add in to get a nicely
+structured piece of work. </p>
+
+<p> I guess this also means that I think there is a lot of potential to what I am creating here, so I'm looking 
+forward to thinking about newer ideas and optimized ways to implement them and refactor my work. Moreover, I also
+think the GUI has so many possibilities and ranges to add and implement cool gimmicks. Although I was limited to using
+things like buttons, labels, and text fields, it was really interesting discovering how to use scroll panes, tabs,
+pop-up windows, and more, and from those discoveries I am stern there is much more to learn and see which could
+most definitely be rewarding to refactor and implement into my coding project.</p>

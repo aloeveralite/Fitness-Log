@@ -21,6 +21,7 @@ public class GymLog implements Writable {
     // EFFECTS: adds a gym exercise to the list of gym exercises
     public void recordExercise(GymExercise gymExercise) {
         this.gymExercises.add(gymExercise);
+        EventLog.getInstance().logEvent(new Event("Added new exercise: " + gymExercise.getName()));
     }
 
     // EFFECTS: removes a gym exercise from the list of gym exercises
@@ -30,6 +31,8 @@ public class GymLog implements Writable {
 
     // EFFECTS: returns the gym exercise and its information at given index
     public String viewGymExercise(int index) {
+        EventLog.getInstance().logEvent(
+                new Event("Viewed exercise: " + this.gymExercises.get(index).getName()));
         GymExercise gymExerciseInfo = gymExercises.get(index);
         String information = gymExerciseInfo.getName() + ": " + gymExerciseInfo.getTargetMuscles()
                 + " " + gymExerciseInfo.getWeight() + "lbs " + gymExerciseInfo.getSets() + "x"
@@ -130,3 +133,6 @@ public class GymLog implements Writable {
 // Aid from: JsonSerializationDemo
 // Class: WorkRoom
 
+// Aid from: AlarmSystem
+// Package: model
+// Class: AlarmCode

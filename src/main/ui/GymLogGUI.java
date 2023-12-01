@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.GymLog;
 import persistence.JsonReader;
 import persistence.JsonWriter;
@@ -7,12 +9,13 @@ import ui.tabs.ExercisesTab;
 import ui.tabs.MainTab;
 
 import javax.swing.*;
+import java.awt.event.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 // Represents the Graphical User Interface for the Gym Log and sets up the JFrame window, the panels for each
-// tab, and a tabbed pane containing access to all tabs
-public class GymLogGUI extends JFrame {
+// tab, a tabbed pane containing access to all tabs, and prints all event logs to the console
+public class GymLogGUI extends JFrame implements WindowListener {
     private static final String JSON_STORAGE = "./data/gymlog.json";
     private GymLog gymLog;
     private JTabbedPane tabbedPane;
@@ -33,6 +36,7 @@ public class GymLogGUI extends JFrame {
         formatTabbedPane();
 
         add(tabbedPane);
+        addWindowListener(this);
 
         setVisible(true);
     }
@@ -76,6 +80,52 @@ public class GymLogGUI extends JFrame {
         }
     }
 
+    // EFFECTS: prints when window is opening
+    @Override
+    public void windowOpened(WindowEvent e) {
+        System.out.println("Opening gym log.\n");
+    }
+
+    // EFFECTS: prints when window is closing
+    @Override
+    public void windowClosing(WindowEvent e) {
+        System.out.println("Closing gym log.\n");
+        for (Event event : EventLog.getInstance()) {
+            System.out.println(event.getDescription());
+        }
+    }
+
+    // EFFECTS: prints when window is closed
+    //          NOT applicable (will work if setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);)
+    @Override
+    public void windowClosed(WindowEvent e) {
+        // stub
+    }
+
+    // EFFECTS: prints when window is iconified
+    @Override
+    public void windowIconified(WindowEvent e) {
+        // stub
+    }
+
+    // EFFECTS: prints when window is de-iconified
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+        // stub
+    }
+
+    // EFFECTS: prints when window is activated
+    @Override
+    public void windowActivated(WindowEvent e) {
+        // stub
+    }
+
+    // EFFECTS: prints when window is de-activated
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+        // stub
+    }
+
     public GymLog getGymLog() {
         return gymLog;
     }
@@ -88,3 +138,10 @@ public class GymLogGUI extends JFrame {
 // Aid from: LongFormProblemStarters
 // Package: SmartHome
 // Class: SmartHomeUI
+
+// Aid from: AlarmSystem
+// Package: ui
+// Class: AlarmControllerUI, ScreenPrinter
+
+// Aid from: https://docs.oracle.com/javase/tutorial/uiswing/events/windowlistener.html
+// Provided by the Phase 4 EdX page

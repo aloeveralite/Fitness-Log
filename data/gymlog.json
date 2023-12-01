@@ -1,4 +1,37 @@
 {
     "name": "Your Gym Log",
-    "gym exercises": []
+    "gym exercises": [
+        {
+            "sets": 0,
+            "name": "push-ups",
+            "weight": 0,
+            "targetMuscle": "chest",
+            "hasAddedWeight": false,
+            "repetitions": 0
+        },
+        {
+            "sets": 0,
+            "name": "squats",
+            "weight": 0,
+            "targetMuscle": "legs",
+            "hasAddedWeight": false,
+            "repetitions": 0
+        },
+        {
+            "sets": 0,
+            "name": "sit-ups",
+            "weight": 0,
+            "targetMuscle": "core",
+            "hasAddedWeight": false,
+            "repetitions": 0
+        },
+        {
+            "sets": 0,
+            "name": "crunches",
+            "weight": 0,
+            "targetMuscle": "core",
+            "hasAddedWeight": false,
+            "repetitions": 0
+        }
+    ]
 }
