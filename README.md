@@ -1,6 +1,6 @@
 # My Personal Project
 
-## Personal Gym Log
+## Fitness Log
 
 ### What will the application do?
 
